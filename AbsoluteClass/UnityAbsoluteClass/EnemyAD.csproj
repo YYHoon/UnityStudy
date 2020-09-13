@@ -56,8 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02.Scripts\Enemy\MoveAgent.cs" />
-    <Compile Include="Assets\02.Scripts\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\EnemyFire.cs" />
+    <Compile Include="Assets\02.Scripts\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\02.Scripts\Enemy\EnemyDamage.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\02.Scripts\Enemy\EnemyAD.asmdef" />

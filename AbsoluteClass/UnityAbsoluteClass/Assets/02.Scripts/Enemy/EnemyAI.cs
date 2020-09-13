@@ -30,6 +30,11 @@ public class EnemyAI : MonoBehaviour
     Animator animator;
     readonly int hashMove = Animator.StringToHash("IsMove");
     readonly int hashSpeed = Animator.StringToHash("Speed");
+    readonly int hashDie = Animator.StringToHash("Die");
+    readonly int hashDieIdx = Animator.StringToHash("DieIdx");
+    readonly int hashOffset = Animator.StringToHash("Offset");
+    readonly int hashWalkSpeed = Animator.StringToHash("WalkSpeed");
+    readonly int hashPlayerDie = Animator.StringToHash("PlayerDie");
     private void Awake()
     {
         var player = GameObject.FindGameObjectWithTag("PLAYER");
@@ -43,11 +48,20 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         moveAgent = GetComponent<MoveAgent>();
         enemyFire = GetComponent<EnemyFire>();
+        animator.SetFloat(hashOffset, UnityEngine.Random.Range(0.0f, 1.0f));
+        animator.SetFloat(hashWalkSpeed, UnityEngine.Random.Range(0.0f, 1.0f));
     }
     private void OnEnable()
     {
         StartCoroutine(CheckState());
         StartCoroutine(Action());
+
+        Damage.OnPlayerDie += this.OnPlayerDie;
+        
+    }
+    private void OnDisable()
+    {
+        Damage.OnPlayerDie -= this.OnPlayerDie;
     }
     IEnumerator CheckState()
     {
@@ -98,7 +112,12 @@ public class EnemyAI : MonoBehaviour
                     }
                     break;
                 case State.DIE:
+                    isDie = true;
+                    enemyFire.isFire = false;
                     moveAgent.Stop();
+                    animator.SetInteger(hashDieIdx, UnityEngine.Random.Range(0, 3));
+                    animator.SetTrigger(hashDie);
+                    GetComponent<CapsuleCollider>().enabled = false;
                     break;
                 default:
                     break;
@@ -110,5 +129,13 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         animator.SetFloat(hashSpeed, moveAgent.speed);
+    }
+    
+    void OnPlayerDie()
+    {
+        moveAgent.Stop();
+        enemyFire.isFire = false;
+        StopAllCoroutines();
+        animator.SetTrigger(hashPlayerDie);
     }
 }

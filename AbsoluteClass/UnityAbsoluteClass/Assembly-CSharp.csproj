@@ -639,10 +639,6 @@
       <Project>{54A74633-E8C5-0727-1637-34CF155342FF}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="PlayerAD.csproj">
-      <Project>{A543FDDE-9B44-D335-C871-BAB48880B4B6}</Project>
-      <Name>PlayerAD</Name>
-    </ProjectReference>
     <ProjectReference Include="StageAD.csproj">
       <Project>{AB266C3C-03AB-EF15-1E00-A9076F3F4E61}</Project>
       <Name>StageAD</Name>
@@ -650,6 +646,14 @@
     <ProjectReference Include="EnemyAD.csproj">
       <Project>{880644BE-6F6F-BBFF-BA3A-85FD2292AB90}</Project>
       <Name>EnemyAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayerAD.csproj">
+      <Project>{A543FDDE-9B44-D335-C871-BAB48880B4B6}</Project>
+      <Name>PlayerAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="CommonAD.csproj">
+      <Project>{999D43FF-95E4-E9A8-63AD-4C68541F7BF2}</Project>
+      <Name>CommonAD</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

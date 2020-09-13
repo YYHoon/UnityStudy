@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public struct PlayerSfx
@@ -23,11 +24,13 @@ public class FireCtrl : MonoBehaviour
     private ParticleSystem MuzzleFlash;
     AudioSource _audio;
     public PlayerSfx playerSfx;
+    Shake shake;
     // Start is called before the first frame update
     void Start()
     {
         MuzzleFlash = firePos.GetComponentInChildren<ParticleSystem>();
         _audio = GetComponent<AudioSource>();
+        shake = GameObject.Find("CameraRig").GetComponent<Shake>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class FireCtrl : MonoBehaviour
     }
     void Fire()
     {
+        StartCoroutine(shake.ShakeCamera());
         Instantiate(bullet, firePos.position, firePos.rotation);
         cartirdge.Play();
         MuzzleFlash.Play();
