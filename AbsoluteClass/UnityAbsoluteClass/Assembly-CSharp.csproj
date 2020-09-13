@@ -55,22 +55,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\GunShoot.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\Scripts\FireCtrl.cs" />
-    <Compile Include="Assets\Scripts\BulletCtrl.cs" />
-    <Compile Include="Assets\Scripts\RemoveBullet.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
-    <Compile Include="Assets\Prefabs\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
-    <Compile Include="Assets\Scripts\MyGizmos.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\03.Prefabs\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Prefabs\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+     <None Include="Assets\03.Prefabs\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\2020.1.3f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -620,8 +615,14 @@
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -632,17 +633,23 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{54A74633-E8C5-0727-1637-34CF155342FF}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayerAD.csproj">
+      <Project>{A543FDDE-9B44-D335-C871-BAB48880B4B6}</Project>
+      <Name>PlayerAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="StageAD.csproj">
+      <Project>{AB266C3C-03AB-EF15-1E00-A9076F3F4E61}</Project>
+      <Name>StageAD</Name>
+    </ProjectReference>
+    <ProjectReference Include="EnemyAD.csproj">
+      <Project>{880644BE-6F6F-BBFF-BA3A-85FD2292AB90}</Project>
+      <Name>EnemyAD</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
