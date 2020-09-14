@@ -6,14 +6,25 @@ public class BulletCtrl : MonoBehaviour
 {
     public float damage = 20.0f;
     public float speed = 1000.0f;
-    void Start()
-    {
-        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-    }
 
-    // Update is called once per frame
-    void Update()
+    Transform tr;
+    Rigidbody rb;
+    TrailRenderer trail;
+    private void Awake()
     {
-        
+        tr = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
+    }
+    private void OnEnable()
+    {
+        rb.AddForce(transform.forward * speed);
+    }
+    private void OnDisable()
+    {
+        trail.Clear();
+        tr.position = Vector3.zero;
+        tr.rotation = Quaternion.identity;
+        rb.Sleep();
     }
 }
